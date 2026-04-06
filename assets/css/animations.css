@@ -1,0 +1,430 @@
+/* animations.css - Handwerk Website Animations */
+
+:root {
+  --primary-green: #40916C;
+  --primary-dark: #1B4332;
+  --accent-red: #D73027;
+  --accent-dark-red: #B71C1C;
+  --shadow-light: rgba(0,0,0,0.15);
+  --shadow-medium: rgba(27,67,50,0.3);
+}
+
+/* KEYFRAME LIBRARY */
+@keyframes slideInDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(215, 48, 39, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(215, 48, 39, 0.8); }
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(215, 48, 39, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(215, 48, 39, 0.8); }
+}
+
+@keyframes vibrateOnHover {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes underlineDraw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* SCROLL-TRIGGERED ANIMATIONS */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.blur-in {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+}
+
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* STAGGERED ANIMATION CLASSES */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* HERO ANIMATIONS */
+.hero-title {
+  animation: slideInDown 1s ease-out;
+}
+
+.hero-subtitle {
+  animation: slideInDown 1s ease-out 0.2s both;
+}
+
+.hero-cta {
+  animation: bounceIn 1s ease-out 0.4s both;
+}
+
+/* DESIGN MOMENTS */
+
+/* Generationen-Timeline Hero */
+.timeline-hero {
+  position: relative;
+  background: linear-gradient(135deg, #1B4332 0%, #40916C 100%);
+  overflow: hidden;
+}
+
+.timeline-dots {
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+.generation-portrait {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.generation-portrait.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.year-counter {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* VDI-Zertifikat 3D-Showcase */
+.certificate-showcase {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.certificate-card {
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transform-style: preserve-3d;
+}
+
+.certificate-card:hover {
+  transform: rotateY(15deg) scale(1.05);
+  box-shadow: 0 20px 40px var(--shadow-medium);
+}
+
+/* Emergency-Pulse Widget */
+.emergency-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: emergencyPulse 2s infinite;
+  background: radial-gradient(circle, var(--accent-red) 0%, var(--accent-dark-red) 70%);
+  border-radius: 50px;
+  padding: 15px 20px;
+}
+
+.phone-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.emergency-widget:hover .phone-icon {
+  animation: vibrateOnHover 0.3s ease-in-out infinite;
+}
+
+/* MICRO-INTERACTIONS */
+
+/* Notdienst Button */
+.notdienst-button {
+  animation: pulseGlow 2s infinite;
+  transition: transform 0.3s ease-out;
+}
+
+.notdienst-button:hover {
+  transform: scale(1.05);
+}
+
+/* Zertifikat Badges 3D Flip */
+.zertifikat-badge {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-out;
+}
+
+.zertifikat-badge:hover {
+  transform: rotateY(180deg);
+}
+
+/* Service Cards Hover Lift */
+.service-card {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+/* Click-to-Call Ripple */
+.phone-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.phone-link:active::after {
+  width: 300px;
+  height: 300px;
+  animation: ripple 0.6s ease-out;
+}
+
+/* Meister Foto Breathing */
+.meister-foto {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* HOVER MICRO-INTERACTIONS */
+
+/* Cards */
+.card {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px var(--shadow-light);
+}
+
+/* Buttons with Ripple Effect */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease-out;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn:active::after {
+  width: 200px;
+  height: 200px;
+  animation: ripple 0.6s ease-out;
+}
+
+/* Navigation Links Underline Draw */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Image Hover Container */
+.img-hover-container {
+  overflow: hidden;
+}
+
+.img-hover-container img {
+  transition: transform 0.4s ease-out;
+}
+
+.img-hover-container:hover img {
+  transform: scale(1.05);
+}
+
+/* COUNTER ANIMATION */
+.count-up {
+  transition: all 0.3s ease-out;
+}
+
+/* PARALLAX CLASSES */
+.parallax-slow {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-medium {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* LOADING SKELETON */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Vorher-Nachher Slider Magnetic Thumb */
+.slider-thumb {
+  cursor: grab;
+  transition: transform 0.2s ease-out;
+}
+
+.slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+/* PREFERS-REDUCED-MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .emergency-widget {
+    animation: none;
+  }
+  
+  .meister-foto {
+    animation: none;
+  }
+  
+  .timeline-dots {
+    animation: none;
+  }
+  
+  .year-counter {
+    animation: none;
+  }
+  
+  .notdienst-button {
+    animation: none;
+  }
+  
+  .skeleton {
+    animation: none;
+  }
+}
