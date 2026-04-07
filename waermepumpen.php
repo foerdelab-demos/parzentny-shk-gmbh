@@ -20,8 +20,10 @@ $zertifikate = [
         'vorteile' => [
             'Fachgerechte Planung',
             'Qualitätsgesicherte Installation',
-            'Langfristige Wartung'
-        ], 'Qualifizierte Ausführung', 'Normkonforme Installation']
+            'Langfristige Wartung',
+            'Qualifizierte Ausführung',
+            'Normkonforme Installation'
+        ]
     ],
     [
         'title' => 'NIBE',

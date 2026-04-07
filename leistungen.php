@@ -16,7 +16,8 @@ $services = [
             'Heizungsinstallation',
             'Wartung und Störungsdienst'
         ],
-        'cta' => 'Heizung modernisieren', 'cta_class' => 'btn btn-primary btn-hover'
+        'cta' => 'Heizung modernisieren',
+        'cta_class' => 'btn btn-primary btn-hover',
         'link' => 'waermepumpen.php'
     ],
     'sanitaer' => [

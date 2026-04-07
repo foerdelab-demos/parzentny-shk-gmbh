@@ -16,7 +16,7 @@ if ($_POST) {
     if (empty($email)) $form_errors[] = 'E-Mail ist erforderlich';
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $form_errors[] = 'Ungültige E-Mail-Adresse';
     if (empty($message)) $form_errors[] = 'Nachricht ist erforderlich';
-    if (empty($subject)) $form_errors[] = 'Betreff ist erforderlich';ors[] = 'Nachricht ist erforderlich';
+    if (empty($subject)) $form_errors[] = 'Betreff ist erforderlich';
     
     if (empty($form_errors)) {
         $to = "info@parzentny-shk.de";
